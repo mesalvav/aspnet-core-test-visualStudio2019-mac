@@ -17,4 +17,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\foo.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\foo.html" />
+  </ItemGroup>
 </Project>
