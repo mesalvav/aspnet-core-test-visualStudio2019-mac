@@ -28,34 +28,22 @@ namespace EmployManage
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(
             IApplicationBuilder app,
-            IHostingEnvironment env,
-            ILogger<Startup> logger)
+            IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+            FileServerOptions fileServerOptions = new FileServerOptions();
 
-            app.Use(async (context, next) =>
-            {
-                logger.LogInformation("MW1: incoming request");
-                await next();
-                logger.LogInformation("MW1: Outgoing response");
+            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
+            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");
 
-            });
-
-            app.Use(async (context, next) =>
-            {
-                logger.LogInformation("MW2: incoming request");
-                await next();
-                logger.LogInformation("MW2: Outgoing response");
-
-            });
-
+            app.UseFileServer(fileServerOptions);
             app.Run(async (context) =>
             {
-               await context.Response.WriteAsync(" MW3:Request handled and response produced");
-                logger.LogInformation("MW3: Request handled and response produced");
+                await context.Response.WriteAsync("Hello world!");
+
             });
         }
     }
