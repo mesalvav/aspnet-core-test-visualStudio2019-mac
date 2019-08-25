@@ -21,6 +21,9 @@
     <Content Remove="wwwroot\foo.html" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="README.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="wwwroot\foo.html" />
   </ItemGroup>
 </Project>
