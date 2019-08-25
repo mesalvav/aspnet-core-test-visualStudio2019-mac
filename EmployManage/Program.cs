@@ -14,6 +14,8 @@ namespace EmployManage
     {
         public static void Main(string[] args)
         {
+
+            Console.WriteLine("====+++++++++++++++++===>>> console logging from line 17");
             CreateWebHostBuilder(args).Build().Run();
         }
 
