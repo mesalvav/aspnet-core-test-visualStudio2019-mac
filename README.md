@@ -1,6 +1,6 @@
 ﻿## Following a tutorial about ASP.NET CORE 
 
-By following this tutorial, I will learn how to build MVC web applications using APS.NET CORE
+By following a tutorial, I will learn the basics of how to build MVC web applications using APS.NET CORE
 and C sharp.
 
 first video is at:

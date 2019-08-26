@@ -32,19 +32,17 @@ namespace EmployManage
         {
             if (env.IsDevelopment())
             {
-                DeveloperExceptionPageOptions developerExceptionPageOptions
-                    = new DeveloperExceptionPageOptions();
-                developerExceptionPageOptions.SourceCodeLineCount = 1;
-
-                app.UseDeveloperExceptionPage(developerExceptionPageOptions);
+               
+                app.UseDeveloperExceptionPage();
             }
-            
 
-            app.UseFileServer();
+
+            app.UseStaticFiles();
             app.Run(async (context) =>
             {
-                throw new Exception("exception de la nada..");
-                await context.Response.WriteAsync("Hello world!");
+                
+                await context.Response
+                .WriteAsync("Hosting Enviroment: " + env.EnvironmentName);
 
             });
         }
